@@ -1,1 +1,13 @@
+spring:
+  thymeleaf:
+    mode: HTML5
+    cache: false
+
+  mvc:
+    static-path-pattern: /static/**
+
+github:
+  client_id:  428df01afde56004fcc1
+  client_secret: 68c5a06e47bd019923ddde12da3a5c18f2f390a8
+  redirect_uri: http://localhost:8080/callback
 
