@@ -2,7 +2,7 @@ package com.guorui.solarf.provider;
 
 import com.alibaba.fastjson.JSON;
 import com.guorui.solarf.model.dto.AccessTokenDTO;
-import com.guorui.solarf.model.user.GithubUser;
+import com.guorui.solarf.model.dto.GithubUser;
 import okhttp3.*;
 import org.springframework.stereotype.Component;
 
@@ -26,7 +26,7 @@ public class GithubProvider {
                 .post(body)
                 .build();
         try (Response response = client.newCall(request).execute()) {
-            String token = response.body().string();
+            String token = response.body().string().split("=")[1];
             return token;
         }catch (IOException ex) {
             ex.printStackTrace();
@@ -46,6 +46,7 @@ public class GithubProvider {
         try {
             Response response = client.newCall(request).execute();
             String string = response.body().string();
+            System.out.println(string);
             GithubUser githubUser = JSON.parseObject(string, GithubUser.class);
 
             return githubUser;

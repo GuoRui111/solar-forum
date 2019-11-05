@@ -6,8 +6,15 @@ spring:
   mvc:
     static-path-pattern: /static/**
 
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:~/communitys;AUTO_SERVER=TRUE
+    username: root
+    password: 123456
+
+
 github:
   client_id:  428df01afde56004fcc1
-  client_secret: 68c5a06e47bd019923ddde12da3a5c18f2f390a8
+  client_secret: 9c7ecc7603af3db402aa92b7c2f12e752a9930ce
   redirect_uri: http://localhost:8080/callback
 
